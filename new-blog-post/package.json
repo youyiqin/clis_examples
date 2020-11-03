@@ -12,7 +12,6 @@
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
     "axios": "^0.21.0",
-    "gray-matter": "^4.0.2",
     "tslib": "^1"
   },
   "devDependencies": {
