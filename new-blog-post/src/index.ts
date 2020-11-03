@@ -32,7 +32,6 @@ class NewBlogPost extends Command {
         if (res.status !== 200) {
           console.log("unsplash access key 已失效.");
         } else {
-          console.log(res.data.urls);
           const coverImg = res.data.urls.small;
           const mainImg = res.data.urls.regular;
           const content = `---\ntitle: '${title}'\ndate: '${date}'\ntags:\n- \nmainImg: '${mainImg}'\ncoverImg: '${coverImg}'\nintro: ''\n---\n\n`;
