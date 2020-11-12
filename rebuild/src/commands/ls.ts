@@ -4,8 +4,8 @@ const fsPromise = fs.promises;
 const path = require("path");
 import cli from "cli-ux";
 const Colors = require("colors");
-
 const assert = require("assert");
+import getTargetData from "../lib";
 
 export default class Ls extends Command {
   static description = "rebuild command: ls";
@@ -31,22 +31,46 @@ export default class Ls extends Command {
     const targetLstat = await fsPromise.lstat(target);
     if (targetLstat.isDirectory()) {
       console.log("is directory");
+      const dirData = await fsPromise.readdir(target);
+      // console.log(dirData);
+
+      dirData.forEach(async (item: string) => {
+        await getTargetData(item);
+      });
     } else if (targetLstat.isFile()) {
-      const size = targetLstat.size();
-      const accessData = await fsPromise.access(target);
+      const size = targetLstat.size;
       const data = [
         {
           name: Colors.green(target),
           size: Colors.yellow(
             size > 1024 * 1024
-              ? `${size / 1024 / 1024} MB`
-              : `${targetLstat.size / 1024} KB`
+              ? `${(size / 1024 / 1024).toFixed(2)} MB`
+              : `${(targetLstat.size / 1024).toFixed(2)} KB`
           ),
+          type: targetLstat.isDirectory() ? "directory" : "file",
+          lastUpdateTime: new Date(targetLstat.ctime),
         },
       ];
-      cli.table();
+      // console.log(data);
+      cli.table(data, {
+        type: {
+          header: "",
+          get: (row) => (row.type === "file" ? "📝" : "🗂️"),
+          minWidth: 4,
+        },
+        name: {
+          minWidth: 18,
+          get: (row) => row.name,
+        },
+        size: {
+          minWidth: 10,
+          get: (row) => row.size,
+        },
+        lastUpdateTime: {
+          get: (row) =>
+            `${row.lastUpdateTime.toLocaleDateString()} ${row.lastUpdateTime.toLocaleTimeString()}`,
+        },
+      });
     }
-    // const parentPath = path.join(_path, "..");
-    // const currentPathData = await fs.readdirAsync;
   }
 }
