@@ -14,8 +14,10 @@
     "@types/lodash": "^4.14.165",
     "axios": "^0.21.0",
     "cheerio": "^1.0.0-rc.3",
+    "cli-progress": "^3.8.2",
+    "gbk-string": "^0.1.0",
     "iconv-lite": "^0.6.2",
-    "lodash": "^4.17.20",
+    "inquirer": "^7.3.3",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -32,7 +34,7 @@
     "/bin",
     "/lib"
   ],
-  "homepage": "https://github.com/youyiqin/top-novels",
+  "homepage": "https://github.com/youyiqin/clis_example/top-novels",
   "keywords": [
     "oclif"
   ],
@@ -41,7 +43,7 @@
   "oclif": {
     "bin": "top-novels"
   },
-  "repository": "youyiqin/top-novels",
+  "repository": "youyiqin/clis_example/top-novels",
   "scripts": {
     "prepack": "rimraf lib && tsc -b && oclif-dev readme",
     "test": "echo NO TESTS",
