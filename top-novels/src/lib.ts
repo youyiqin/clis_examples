@@ -13,7 +13,7 @@ const myProgressBar = new cliProgress.SingleBar({
 export const basicUrl = 'https://www.230book.com/'
 
 
-export default async function download( bookid:string ) {
+export default async function download(bookid: string) {
   const homeUrl = `${basicUrl}book/${bookid}`
   const homepageContent = await axios.get(homeUrl, {
     responseType: "arraybuffer"
@@ -21,7 +21,7 @@ export default async function download( bookid:string ) {
   // 转码中文
   let $ = cheerio.load(iconv.decode(homepageContent.data, "gb2312"))
   const bookName = $('#info h1').text()
-  const chapterUrlList: {title: string, url: string}[] = []
+  const chapterUrlList: { title: string, url: string }[] = []
   $('#list ._chapter li a')
     .each((i: number, elem: HTMLElement) => {
       const chapterUrl = `${homeUrl}/${$(elem).attr('href')}`
@@ -30,7 +30,8 @@ export default async function download( bookid:string ) {
         url: chapterUrl
       })
     })
-  console.log('已获取章节，总数：', chapterUrlList.length, '，开始准备下载：');
+  console.log(`<<\n\t\t\t\t${bookName}>>\n`);
+  console.log('章节总数：', chapterUrlList.length, '，开始准备下载：');
   let txtArr = []
   let index = 0
   while (index < chapterUrlList.length) {
@@ -38,9 +39,9 @@ export default async function download( bookid:string ) {
     const content = await downloadChapterContent(url)
     // 逐一下载
     txtArr.push(content)
-    myProgressBar.start(chapterUrlList.length, index, {title: ''})
+    myProgressBar.start(chapterUrlList.length, index, { title: '' })
     index += 1
-    myProgressBar.update(index, {title})
+    myProgressBar.update(index, { title })
   }
   myProgressBar.update(index)
   myProgressBar.stop()
@@ -79,7 +80,7 @@ const downloadChapterContent = async (url: string, retryTimes = 3): Promise<stri
     }).catch(err => {
       // 三次重试
       if (retryTimes > 0) {
-        console.log('下载失败', err.message, url,'重试中...');
+        console.log('下载失败', err.message, url, '重试中...');
         retryTimes -= 1
         downloadChapterContent(url, retryTimes)
       } else {
