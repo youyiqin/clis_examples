@@ -1,0 +1,49 @@
+{
+  "name": "y",
+  "description": "translate tool",
+  "version": "0.0.0",
+  "author": "youyiqin @youyiqin",
+  "bin": {
+    "y": "./bin/run"
+  },
+  "bugs": "https://github.com/youyiqin/y/issues",
+  "dependencies": {
+    "@oclif/command": "^1",
+    "@oclif/config": "^1",
+    "@oclif/plugin-help": "^3",
+    "axios": "^0.21.1",
+    "blueimp-md5": "^2.18.0",
+    "crypto": "^1.0.1",
+    "tslib": "^1"
+  },
+  "devDependencies": {
+    "@oclif/dev-cli": "^1",
+    "@types/node": "^10",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8",
+    "typescript": "^3.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ],
+  "homepage": "https://github.com/youyiqin/y",
+  "keywords": [
+    "oclif"
+  ],
+  "license": "MIT",
+  "main": "lib/index.js",
+  "oclif": {
+    "bin": "y"
+  },
+  "repository": "youyiqin/y",
+  "scripts": {
+    "prepack": "rimraf lib && tsc -b && oclif-dev readme",
+    "test": "echo NO TESTS",
+    "version": "oclif-dev readme && git add README.md"
+  },
+  "types": "lib/index.d.ts"
+}
