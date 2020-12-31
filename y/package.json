@@ -11,9 +11,9 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^3",
+    "@types/qs": "^6.9.5",
     "axios": "^0.21.1",
-    "blueimp-md5": "^2.18.0",
-    "crypto": "^1.0.1",
+    "qs": "^6.9.4",
     "tslib": "^1"
   },
   "devDependencies": {
