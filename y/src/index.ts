@@ -4,7 +4,7 @@ const qs = require('qs')
 import { md5 } from './lib'
 
 class Y extends Command {
-  static description = 'traslate tool.'
+  static description = 'translate tool.'
 
   static flags = {
     // add --version flag to show CLI version
