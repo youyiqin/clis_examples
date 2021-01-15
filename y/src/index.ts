@@ -50,9 +50,9 @@ class Y extends Command {
       .then((res) => {
         switch (res.data.errorCode) {
           case 0:
-            console.log(`\n\t\t直译: ${res?.data?.translateResult[0][0]?.tgt}`);
+            console.log(`\n\t\t直译: ${res?.data?.translateResult[0][0]?.tgt}\n`);
             res.data.smartResult?.entries.forEach((i: string) => {
-              console.log(`\t\t更多内容:\n${i}`);
+              console.log(`\t\t${i}`);
             })
             break;
           case 40:
