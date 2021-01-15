@@ -48,11 +48,28 @@ class Y extends Command {
     axios.defaults.headers = headers
     axios.post(url, qs.stringify(data))
       .then((res) => {
-        res.data.smartResult.entries.forEach((i: string) => {
-          console.log(`\t\t${i}`);
-        })
+        switch (res.data.errorCode) {
+          case 0:
+            console.log(`\n\t\t直译: ${res?.data?.translateResult[0][0]?.tgt}`);
+            res.data.smartResult?.entries.forEach((i: string) => {
+              console.log(`\t\t更多内容:\n${i}`);
+            })
+            break;
+          case 40:
+            console.log(`翻译失败, ${keyword} 似乎不是一个有效的词语`);
+            break;
+          case 20:
+            console.log(`翻译失败, ${keyword} 过长.`);
+            break;
+          case 30:
+            console.log(`翻译失败, ${keyword} 无法进行有效的翻译.`);
+            break;
+          default:
+            console.log(`响应错误码: ${res.data.errorCode}, 翻译失败.`);
+            break;
+        }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log('翻译失败.', err))
   }
 }
 
