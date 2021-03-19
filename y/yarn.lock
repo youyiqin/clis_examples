@@ -157,6 +157,11 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-10.17.50.tgz?cache=0&sync_timestamp=1609347839901&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-10.17.50.tgz#7a20902af591282aa9176baefc37d4372131c32d"
   integrity sha1-eiCQKvWRKCqpF2uu/DfUNyExwy0=
 
+"@types/qs@^6.9.5":
+  version "6.9.5"
+  resolved "https://registry.npm.taobao.org/@types/qs/download/@types/qs-6.9.5.tgz?cache=0&sync_timestamp=1605055233715&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fqs%2Fdownload%2F%40types%2Fqs-6.9.5.tgz#434711bdd49eb5ee69d90c1d67c354a9a8ecb18b"
+  integrity sha1-Q0cRvdSete5p2QwdZ8NUqajssYs=
+
 ansi-escapes@^3.1.0:
   version "3.2.0"
   resolved "https://registry.npm.taobao.org/ansi-escapes/download/ansi-escapes-3.2.0.tgz#8780b98ff9dbf5638152d1f1fe5c1d7b4442976b"
@@ -240,11 +245,6 @@ bl@^4.0.3:
     buffer "^5.5.0"
     inherits "^2.0.4"
     readable-stream "^3.4.0"
-
-blueimp-md5@^2.18.0:
-  version "2.18.0"
-  resolved "https://registry.npm.taobao.org/blueimp-md5/download/blueimp-md5-2.18.0.tgz#1152be1335f0c6b3911ed9e36db54f3e6ac52935"
-  integrity sha1-EVK+EzXwxrORHtnjbbVPPmrFKTU=
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -400,11 +400,6 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
-
-crypto@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npm.taobao.org/crypto/download/crypto-1.0.1.tgz#2af1b7cad8175d24c8a1b0778255794a21803037"
-  integrity sha1-KvG3ytgXXSTIobB3glV5SiGAMDc=
 
 debug@^4.1.1:
   version "4.3.1"
@@ -1068,6 +1063,11 @@ qqjs@^0.3.10:
     tar-fs "^2.0.0"
     tmp "^0.1.0"
     write-json-file "^4.1.1"
+
+qs@^6.9.4:
+  version "6.9.4"
+  resolved "https://registry.npm.taobao.org/qs/download/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
+  integrity sha1-kJCykNH5FyjTwi5UhDykSupatoc=
 
 readable-stream@^3.1.1, readable-stream@^3.4.0:
   version "3.6.0"
